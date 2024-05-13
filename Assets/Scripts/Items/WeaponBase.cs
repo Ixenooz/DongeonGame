@@ -44,15 +44,12 @@ public class WeaponBase : ScriptableObject
     public int Erudition {
         get { return erudition; }
     }
-    public List<LearnableSpell> LearnableSpells {
-        get { return learnableSpells; }
-    }
 
     [System.Serializable]
     public class LearnableSpell 
     {
-        [SerializeField] SpellBase spellBase;
-        [SerializeField] int level;
+        [SerializeField] public SpellBase spellBase;
+        [SerializeField] public int level;
         
         public SpellBase Base {
             get { return spellBase; }
@@ -61,8 +58,10 @@ public class WeaponBase : ScriptableObject
         public int Level {
             get { return level; }
         }
+    }
 
-
+    public List<LearnableSpell> LearnableSpells {
+    get { return learnableSpells; }
     }
 }
 

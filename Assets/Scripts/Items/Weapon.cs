@@ -11,26 +11,43 @@ public enum WeaponType {
     Arc,
 }
 
-public class Weapon
+public class Weapon : MonoBehaviour
 {
-    WeaponBase Base;
-    int level;
+    public WeaponBase Base;
+    private int level;
+    private List<Spell> spells;
 
-    public List<Spell> Spells { get; set; }
-
-    public Weapon(WeaponBase wBase, int wLevel)
+    public Weapon(WeaponBase wBase)
     {
         Base = wBase;
-        level = wLevel;
+        level = wBase.Level;
 
         // Génère les spell selon le niveau de l'arme
-        Spells = new List<Spell>();
+        spells = new List<Spell>();
         foreach (var spell in Base.LearnableSpells)
         {
             if (spell.Level <= level)
             {
-                Spells.Add(new Spell(spell.Base));
+                spells.Add(new Spell(spell.Base));
             }
         }
     }
+
+    public List<Spell> GetSpells()
+    {
+        // Génère les spell selon le niveau de l'arme
+        spells = new List<Spell>();
+        spells.Clear();
+
+        foreach (var spell in Base.LearnableSpells)
+        {
+            if (spell.Level <= Base.Level)
+            {
+                spells.Add(new Spell(spell.Base));
+            }
+        } 
+        return spells;
+    }
+
+
 }

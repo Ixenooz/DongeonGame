@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17295c6de47a645458871cfabd540c45, type: 3}
-  m_Name: Epee du debutant
+  m_Name: Epee
   m_EditorClassIdentifier: 
-  name: Epee du debutant
-  level: 1
+  name: "Epee du d\xE9butant"
+  level: 2
   constitution: 10
   energie: 0
   force: 5
@@ -24,6 +24,4 @@ MonoBehaviour:
   - spellBase: {fileID: 11400000, guid: 6ff6140f481f53344a32696e5707e893, type: 2}
     level: 1
   - spellBase: {fileID: 11400000, guid: 60818f4395db63a4a83f90dac0765315, type: 2}
-    level: 2
-  - spellBase: {fileID: 11400000, guid: a4dac7066d407f54fa59d89d9c2a1456, type: 2}
     level: 3

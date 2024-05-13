@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerBase playerBase;
-
-    public WeaponBase EquippedWeapon; //Arme actuellement équipée
+    public Weapon EquippedWeapon; //Arme actuellement équipée
+    
     // Pseudo du joueur
     public string Pseudo = "Nopseudo";
 
@@ -16,22 +16,22 @@ public class Player : MonoBehaviour
     
     // Calcul des statistiques du personnage (baseStat + weaponStat)
     public int Constitution {
-        get {return EquippedWeapon.Constitution + playerBase.baseConstitution;}
+        get {return EquippedWeapon.Base.Constitution + playerBase.baseConstitution;}
     }
     public int Energie {
-        get {return EquippedWeapon.Energie + playerBase.baseEnergie;}
+        get {return EquippedWeapon.Base.Energie + playerBase.baseEnergie;}
     }
     public int Force {
-        get {return EquippedWeapon.Force + playerBase.baseForce;}
+        get {return EquippedWeapon.Base.Force + playerBase.baseForce;}
     }
     public int Defense {
-        get {return EquippedWeapon.Defense + playerBase.baseDefense;}
+        get {return EquippedWeapon.Base.Defense + playerBase.baseDefense;}
     }
     public int Critique {
-        get {return EquippedWeapon.Critique + playerBase.baseCritique;}
+        get {return EquippedWeapon.Base.Critique + playerBase.baseCritique;}
     }
     public int Erudition {
-        get {return EquippedWeapon.Erudition + playerBase.baseErudition;}
+        get {return EquippedWeapon.Base.Erudition + playerBase.baseErudition;}
     }
 
     // Valeur qui évoluera dans la partie en fonction des stats
@@ -41,4 +41,5 @@ public class Player : MonoBehaviour
     public int MaxMana {
         get { return playerBase.baseEnergie * 5; }
     }
+    
 }

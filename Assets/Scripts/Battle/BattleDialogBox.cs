@@ -13,7 +13,7 @@ public class BattleDialogBox : MonoBehaviour
     [SerializeField] GameObject spellSelector;
 
     [SerializeField] List<TMP_Text> actionTexts;
-    [SerializeField] List<SpellPrefab> spellPrefab;
+    [SerializeField] List<SpellPrefab> spellPrefabs;
 
     public void SetDialog(string dialog)
     {
@@ -60,6 +60,24 @@ public class BattleDialogBox : MonoBehaviour
             else
             {
                 actionTexts[i].color = Color.black;
+            }
+        }
+    }
+
+    public void SetSpellNames(List<Spell> spells)
+    {
+        Debug.Log(spellPrefabs.Count);
+        for (int i = 0; i < spellPrefabs.Count; ++i)
+        {
+            if (i < spells.Count)
+            {
+                spellPrefabs[i].spellText.SetText(spells[i].Base.Name);
+                spellPrefabs[i].spellImage.sprite = spells[i].Base.SpellSprite;
+            }
+            else
+            {
+                spellPrefabs[i].spellText.SetText("---");
+                spellPrefabs[i].spellImage.enabled = false;
             }
         }
     }

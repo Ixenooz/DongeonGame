@@ -52,5 +52,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "DonjonGameV1.sln"
+    "dotnet.defaultSolution": "DongeonGame.sln"
 }

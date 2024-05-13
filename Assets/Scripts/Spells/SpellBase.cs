@@ -37,6 +37,9 @@ public class SpellBase : ScriptableObject
     public SpellType SpellType{
         get { return spellType; }
     }
+    public Sprite SpellSprite {
+        get { return spellSprite; }
+    }
 
     public bool ScaleWithConstitution {
         get { return scaleWithConstitution; }

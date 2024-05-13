@@ -35,6 +35,9 @@ public class BattleSystem : MonoBehaviour
         playerHud.SetPlayerData(player);
         enemyHud.SetEnemyData(enemy);
 
+        // J'affiche les spells de mon arme
+        dialogBox.SetSpellNames(player.EquippedWeapon.GetSpells());
+
         yield return dialogBox.TypeDialog(enemy.name + " vous attaque.");
         yield return new WaitForSeconds(1f);
 
@@ -43,9 +46,18 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerAction()
     {
+
         state = BattleState.PlayerAction;
-        StartCoroutine(dialogBox.TypeDialog("Choisissez une action"));
+        StartCoroutine(dialogBox.TypeDialog("Que souhaitez vous faire ?"));
         dialogBox.EnableActionSelector(true);
+    }
+
+    void PlayerSpell()
+    {
+        state = BattleState.PlayerSpell;
+        dialogBox.EnableActionSelector(false);
+        dialogBox.EnableDialogText(false);
+        dialogBox.EnableSpellSelector(true);
     }
 
     private void Update() 
@@ -58,8 +70,18 @@ public class BattleSystem : MonoBehaviour
 
     void HandleActionSelection()
     {
-        
-    }
+        // Je séléctionne Attaquer (pour le moment seulement cette option existe)
+        currentAction = 0;
+        dialogBox.UpdateActionSelection(currentAction);
 
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            if (currentAction == 0)
+            {
+                // Attaquer
+                PlayerSpell();
+            }
+        }
+    }
 }
 
