@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c78384d0a8cc74bb3873c646d72b1b, type: 3}
+  m_Name: Taillade
+  m_EditorClassIdentifier: 
+  name: Taillade
+  description: 'Taillade l''ennemie.
+
+    Basee sur Force et Critique.'
+  weaponType: 1
+  spellType: 1
+  spellSprite: {fileID: -1141908147, guid: 3344a9e5ec3c30d4ea0b3f73cb7d603d, type: 3}
+  manaCost: 5
+  scaleWithConstitution: 0
+  scaleWithEnergie: 0
+  scaleWithForce: 1
+  scaleWithDefense: 0
+  scaleWithCritique: 1
+  scaleWithErudition: 0

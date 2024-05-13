@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9f20ca5b004a53442b147bfb40634858
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - cryos-font
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 82463833a022de8418bbddbe0a1d4324, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
