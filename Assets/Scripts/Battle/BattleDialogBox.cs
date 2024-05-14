@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,9 +65,23 @@ public class BattleDialogBox : MonoBehaviour
         }
     }
 
+    public void UpdateSpellSelection(int selectedSpell)
+    {
+        for (int i=0; i<spellPrefabs.Count; ++i)
+        {
+            if (i == selectedSpell)
+            {
+                spellPrefabs[i].spellText.color = highlightedColor;
+            }
+            else 
+            {
+                spellPrefabs[i].spellText.color = Color.white;
+            }
+        }
+    }
+
     public void SetSpellNames(List<Spell> spells)
     {
-        Debug.Log(spellPrefabs.Count);
         for (int i = 0; i < spellPrefabs.Count; ++i)
         {
             if (i < spells.Count)

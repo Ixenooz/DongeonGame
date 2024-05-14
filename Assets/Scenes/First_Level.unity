@@ -415,6 +415,8 @@ MonoBehaviour:
   playerBase: {fileID: 11400000, guid: 47ef6a35042abdc46827b4904533df07, type: 2}
   EquippedWeapon: {fileID: 31235349}
   Pseudo: Nopseudo
+  Hp: 0
+  Mana: 0
 --- !u!114 &31235349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -249.91003, y: -6.630005}
+  m_AnchoredPosition: {x: -249.90997, y: -6.630005}
   m_SizeDelta: {x: -630.91, y: -113.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360400325
@@ -10408,8 +10410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.4532, y: -158.1}
-  m_SizeDelta: {x: 1691.7, y: 264.13}
+  m_AnchoredPosition: {x: -0.1, y: -158.1}
+  m_SizeDelta: {x: 1680.85, y: 264.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277484605
 MonoBehaviour:
@@ -10431,7 +10433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1643938365, guid: 8d2c3edd8a34cca46b2d2e0769c43ddb, type: 3}
+  m_Sprite: {fileID: -537499401, guid: 8d2c3edd8a34cca46b2d2e0769c43ddb, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10462,7 +10464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lettersPerSecond: 30
-  highlightedColor: {r: 0.9433962, g: 0.0639144, b: 0, a: 1}
+  highlightedColor: {r: 0.35686275, g: 0.09019608, b: 0.11372549, a: 1}
   dialogText: {fileID: 360400325}
   actionSelector: {fileID: 1236653626}
   spellSelector: {fileID: 435113252}

@@ -40,6 +40,9 @@ public class SpellBase : ScriptableObject
     public Sprite SpellSprite {
         get { return spellSprite; }
     }
+    public int ManaCost {
+        get { return manaCost; }
+    }
 
     public bool ScaleWithConstitution {
         get { return scaleWithConstitution; }

@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     public string Pseudo = "Nopseudo";
 
     // Valeur qui changera pendant un combat
-    public int Hp {get; set; }
-    public int Mana {get; set; }
+    public int Hp;
+    public int Mana;
     
     // Calcul des statistiques du personnage (baseStat + weaponStat)
     public int Constitution {
@@ -36,10 +36,12 @@ public class Player : MonoBehaviour
 
     // Valeur qui évoluera dans la partie en fonction des stats
     public int MaxHp {
-        get { return playerBase.baseConstitution * 5; }
+        get { return Constitution * 5; }
     }
     public int MaxMana {
-        get { return playerBase.baseEnergie * 5; }
+        get { return Energie * 5; }
     }
+    
+    // Ne pas écrire TakeDamage ici
     
 }

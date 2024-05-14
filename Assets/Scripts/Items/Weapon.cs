@@ -33,21 +33,22 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public List<Spell> GetSpells()
+    public List<Spell> Spells
     {
-        // Génère les spell selon le niveau de l'arme
-        spells = new List<Spell>();
-        spells.Clear();
-
-        foreach (var spell in Base.LearnableSpells)
+        get
         {
-            if (spell.Level <= Base.Level)
+            // Génère les spell selon le niveau de l'arme
+            spells = new List<Spell>();
+            spells.Clear();
+
+            foreach (var spell in Base.LearnableSpells)
             {
-                spells.Add(new Spell(spell.Base));
+                if (spell.Level <= Base.Level)
+                {
+                    spells.Add(new Spell(spell.Base));
+                }
             }
-        } 
-        return spells;
+            return spells;
+        }
     }
-
-
 }

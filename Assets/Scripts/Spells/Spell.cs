@@ -6,9 +6,9 @@ public enum SpellType
 {
     None,
     Tranchant,
-    Status,
-    Embrasement,
-    Energetique
+    Glacial,
+    Empoisonne,
+    Enflamme
 }
 
 public class Spell
@@ -19,5 +19,5 @@ public class Spell
     {
         Base = spellBase;
     }
-
 }
+

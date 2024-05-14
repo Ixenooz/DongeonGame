@@ -24,4 +24,4 @@ MonoBehaviour:
   - spellBase: {fileID: 11400000, guid: 6ff6140f481f53344a32696e5707e893, type: 2}
     level: 1
   - spellBase: {fileID: 11400000, guid: 60818f4395db63a4a83f90dac0765315, type: 2}
-    level: 3
+    level: 1

@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponType: 1
   spellType: 1
   spellSprite: {fileID: -1141908147, guid: 3344a9e5ec3c30d4ea0b3f73cb7d603d, type: 3}
-  manaCost: 10
+  manaCost: 5
   scaleWithConstitution: 1
   scaleWithEnergie: 0
   scaleWithForce: 1
