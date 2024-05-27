@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,6 +10,9 @@ public class Player : MonoBehaviour
     
     // Pseudo du joueur
     public string Pseudo = "Nopseudo";
+
+    public int currentGold;
+    public TMP_Text goldUI;
 
     // Valeur qui changera pendant un combat
     public int Hp;
@@ -36,12 +40,15 @@ public class Player : MonoBehaviour
 
     // Valeur qui évoluera dans la partie en fonction des stats
     public int MaxHp {
-        get { return Constitution * 5; }
+        get { return Constitution * 10; }
     }
     public int MaxMana {
         get { return Energie * 5; }
     }
     
-    // Ne pas écrire TakeDamage ici
+    private void Update()
+    {
+        goldUI.SetText(currentGold.ToString());
+    }
     
 }

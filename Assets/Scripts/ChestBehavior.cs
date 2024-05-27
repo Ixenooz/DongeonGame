@@ -36,14 +36,14 @@ public class ChestBehavior : MonoBehaviour, Interactable
         {   // Si le coffre n'a pas été ouvert
             if (chestGold > 0)
             {
-                HeroCharacterGold hcg = player.gameObject.GetComponent<HeroCharacterGold>();
-                hcg.currentGold += chestGold; // J'ajoute à nos golds actuels les golds du coffre
+                Player player = this.player.gameObject.GetComponent<Player>();
 
                 //Je joue l'animation du coffre qui s'ouvre et j'affiche le coin 1s après
                 chestAnimator.SetBool("isOpened", true);
 
                 yield return new WaitForSeconds(1);
 
+                player.currentGold += chestGold; // J'ajoute à nos golds actuels les golds du coffre
                 coin.SetActive(true);
                 goldAnimator.SetBool("isOpened", true);
                 yield return DialogManager.Instance.ShowDialog(dialog);

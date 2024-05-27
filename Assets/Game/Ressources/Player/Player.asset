@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59084182e1ee8354a94a7ac7612d9133, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  Pseudo: Nopseudo
   baseConstitution: 5
   baseEnergie: 5
   baseForce: 5
   baseDefense: 5
   baseCritique: 5
   baseErudition: 5
-  EquippedWeapon: {fileID: 0}

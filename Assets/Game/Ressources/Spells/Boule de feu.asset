@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80c78384d0a8cc74bb3873c646d72b1b, type: 3}
-  m_Name: Fracture
+  m_Name: Boule de feu
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  weaponType: 0
-  spellType: 0
-  spellSprite: {fileID: 0}
-  manaCost: 20
+  name: Boule de feu
+  description: 'Lance une boule de feu sur l''adversaire.
+
+    Basee sur Erudition
+    et Critique'
+  weaponType: 6
+  spellType: 4
+  spellSprite: {fileID: 394555781, guid: 3344a9e5ec3c30d4ea0b3f73cb7d603d, type: 3}
+  manaCost: 15

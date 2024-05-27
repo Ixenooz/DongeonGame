@@ -23,8 +23,8 @@ public class DoorBehavior : MonoBehaviour, Interactable
     public IEnumerator Interact()
     {
         int selectedChoice = 0;
-        HeroCharacterGold hcg = player.GetComponent<HeroCharacterGold>();
-        if (hcg.currentGold >= doorCost)
+        Player player = this.player.GetComponent<Player>();
+        if (player.currentGold >= doorCost)
         {
             dialog = new Dialog(new List<string>() { "Il vous faut utiliser " + doorCost.ToString() + " d'or pour ouvrir cette porte.", "Souhaitez vous l'ouvrir ?"});
             yield return DialogManager.Instance.ShowDialog(dialog, new List<string>() { "Oui", "Non" }, 
@@ -33,7 +33,7 @@ public class DoorBehavior : MonoBehaviour, Interactable
             if (selectedChoice == 0)
             {
                 // Oui
-                hcg.currentGold -= doorCost;
+                player.currentGold -= doorCost;
                 gameObject.SetActive(false);
                 
             }

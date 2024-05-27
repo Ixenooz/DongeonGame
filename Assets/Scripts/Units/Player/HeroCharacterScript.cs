@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,8 @@ public class HeroCharacterScript : MonoBehaviour
     public Rigidbody2D rb; // Rigidbody du personnage
     public Animator animator; // Animator du personnage
     public SpriteRenderer spriteRenderer; // Sprite Renderer du personnage
-    Vector2 dir; // Direction que l'on souhaite appliquer au personnage
-    int dirValue = 0; // 0 = Idle ; 1 = Down ; 2 = Side ; 3 = UP
+    public Vector2 dir; // Direction que l'on souhaite appliquer au personnage
+    public int dirValue = 0; // 0 = Idle ; 1 = Down ; 2 = Side ; 3 = UP
     
 
     // Fonction Unity

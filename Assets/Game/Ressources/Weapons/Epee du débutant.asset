@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17295c6de47a645458871cfabd540c45, type: 3}
-  m_Name: Epee
+  m_Name: "Epee du d\xE9butant"
   m_EditorClassIdentifier: 
   name: "Epee du d\xE9butant"
   level: 2
@@ -18,10 +18,14 @@ MonoBehaviour:
   energie: 0
   force: 5
   defense: 0
-  critique: -5
+  critique: 0
   erudition: 0
   learnableSpells:
   - spellBase: {fileID: 11400000, guid: 6ff6140f481f53344a32696e5707e893, type: 2}
     level: 1
   - spellBase: {fileID: 11400000, guid: 60818f4395db63a4a83f90dac0765315, type: 2}
-    level: 1
+    level: 2
+  - spellBase: {fileID: 11400000, guid: 8e5f56216eb82ad4fae1056c33113b4b, type: 2}
+    level: 3
+  - spellBase: {fileID: 11400000, guid: 8b826f20b6be8a04aae2b466bd4b49fb, type: 2}
+    level: 5

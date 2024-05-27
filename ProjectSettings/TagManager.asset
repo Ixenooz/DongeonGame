@@ -6,7 +6,7 @@ TagManager:
   tags:
   - chest
   - door
-  - inDialog
+  - enemy
   layers:
   - Default
   - TransparentFX

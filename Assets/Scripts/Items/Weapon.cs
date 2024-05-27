@@ -9,6 +9,7 @@ public enum WeaponType {
     Lance,
     Dague,
     Arc,
+    Sceptre
 }
 
 public class Weapon : MonoBehaviour

@@ -9,7 +9,10 @@ using UnityEngine.UI;
 public class HeroCharacterCollisions : MonoBehaviour
 {
     
-    Collider2D otherObj;
+    public Collider2D otherObj;
+    
+    public event Action OnBattleStart;
+
     void OnTriggerEnter2D(Collider2D other) //Lorsque le joueur rentre en collision avec un collider "other" isTrigger
     {
 
@@ -22,6 +25,11 @@ public class HeroCharacterCollisions : MonoBehaviour
         if(other.gameObject.tag == "door")
         {
             otherObj = other;
+        }
+        if (other.gameObject.tag == "enemy")
+        {
+            otherObj = other;
+            OnBattleStart.Invoke();
         }
     }
 

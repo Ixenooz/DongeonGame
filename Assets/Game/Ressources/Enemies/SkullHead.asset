@@ -15,13 +15,15 @@ MonoBehaviour:
   name: The Skull Head
   type: 1
   sprite: {fileID: 21300000, guid: 5aebed582be2691448ef06d9d8f6dd81, type: 3}
-  Hp: 0
-  Mana: 30
-  Constitution: 5
-  Energie: 10
-  Force: 10
-  Defense: 5
-  Critique: 5
+  Hp: 150
+  Mana: 25
+  Constitution: 15
+  Energie: 5
+  Force: 22
+  Defense: 12
+  Critique: 0
   Erudition: 5
   Spells:
   - {fileID: 11400000, guid: 6ff6140f481f53344a32696e5707e893, type: 2}
+  - {fileID: 11400000, guid: 60818f4395db63a4a83f90dac0765315, type: 2}
+  - {fileID: 11400000, guid: 8e5f56216eb82ad4fae1056c33113b4b, type: 2}
