@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Battle, Dialog }
+public enum GameState { FreeRoam, Battle, Dialog, Inventory }
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
     [SerializeField] Canvas UICanvas;
+    [SerializeField] Inventory inventory;
     private Enemy currentEnemy;
 
     GameState state;
@@ -20,9 +21,10 @@ public class GameController : MonoBehaviour
     private void Start() 
     {
         playerCollisions.OnBattleStart += StartBattle;
-
         battleSystem.OnBattleOver += EndBattle;
 
+        inventory.OnOpenInventory += OpenInventory;
+        inventory.OnCloseInventory += CloseInventory;
 
         DialogManager.Instance.OnShowDialog += () => // Lorsqu'un dialogue est actif
         {
@@ -72,10 +74,22 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("Vous avez perdu la partie");
         }
+    }
 
-        
+    void OpenInventory()
+    {
+        if (state == GameState.FreeRoam)
+        {  
+            state = GameState.Inventory;
+        }
+    }
 
-
+    void CloseInventory()
+    {
+        if (state == GameState.Inventory)
+        {
+            state = GameState.FreeRoam;
+        }
     }
 
     private void Update() 
@@ -84,6 +98,7 @@ public class GameController : MonoBehaviour
         {
             playerController.HandleUpdate();
             playerCollisions.HandleUpdate();
+            inventory.HandleUpdateOpen();
         }
         else if (state == GameState.Battle)
         {
@@ -92,6 +107,10 @@ public class GameController : MonoBehaviour
         else if (state == GameState.Dialog)
         {
             DialogManager.Instance.HandleUpdate();
+        }
+        else if (state == GameState.Inventory)
+        {
+            inventory.HandleUpdate();
         }
     }
 }

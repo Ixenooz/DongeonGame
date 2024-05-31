@@ -12,7 +12,7 @@ public enum EnemyType{
 
 public class EnemyBase : ScriptableObject
 {
-    public string name;
+    public new string name;
     public EnemyType type;
     public Sprite sprite;
 

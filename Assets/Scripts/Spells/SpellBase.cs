@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SpellBase : ScriptableObject
 {
-    [SerializeField] string name;
+    [SerializeField] new string name;
 
     [TextArea]
     [SerializeField] string description;

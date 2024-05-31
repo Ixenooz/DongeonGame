@@ -331,6 +331,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
         OnBattleOver(true);
     }
+    
     private IEnumerator PlayerFainted()
     {
         yield return dialogBox.TypeDialog($"Vous avez ete vaincu par {enemy.name}.");

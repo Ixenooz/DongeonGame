@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WeaponBase : ScriptableObject
 {
-    [SerializeField] string name;
+    [SerializeField] new string name;
     [SerializeField] int level;
 
     // Statistiques de l'arme
