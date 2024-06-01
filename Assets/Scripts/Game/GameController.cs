@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Battle, Dialog, Inventory }
+public enum GameState { FreeRoam, Battle, Dialog, Inventory, Augments }
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Camera worldCamera;
     [SerializeField] Canvas UICanvas;
     [SerializeField] Inventory inventory;
+    [SerializeField] AugmentManager augmentManager;
     private Enemy currentEnemy;
 
     GameState state;
@@ -25,6 +26,8 @@ public class GameController : MonoBehaviour
 
         inventory.OnOpenInventory += OpenInventory;
         inventory.OnCloseInventory += CloseInventory;
+
+        augmentManager.OnCloseAugment += CloseAugment;
 
         DialogManager.Instance.OnShowDialog += () => // Lorsqu'un dialogue est actif
         {
@@ -39,7 +42,6 @@ public class GameController : MonoBehaviour
             }
         };
     }
-
     void StartBattle()
     {
         state = GameState.Battle;
@@ -58,24 +60,31 @@ public class GameController : MonoBehaviour
         battleSystem.StartBattle();
 
     }
-
-    void EndBattle(bool won)
+    void EndBattle(bool won, bool isBoss)
     {
-        state = GameState.FreeRoam;
-
         if (won)
         {
             currentEnemy.gameObject.SetActive(false);
             battleSystem.gameObject.SetActive(false);
             worldCamera.gameObject.SetActive(true);
             UICanvas.enabled = true;
+            if (!isBoss)
+            {
+                augmentManager.isBossAugment = false;
+                StartCoroutine(OpenStatAugment());
+            }
+            else
+            {
+                augmentManager.isBossAugment = true;
+                StartCoroutine(OpenBossAugment());
+            }
         }
+        
         else
         {
             Debug.Log("Vous avez perdu la partie");
         }
     }
-
     void OpenInventory()
     {
         if (state == GameState.FreeRoam)
@@ -83,11 +92,42 @@ public class GameController : MonoBehaviour
             state = GameState.Inventory;
         }
     }
-
     void CloseInventory()
     {
         if (state == GameState.Inventory)
         {
+            state = GameState.FreeRoam;
+        }
+    }
+    IEnumerator OpenStatAugment()
+    {
+        if (state != GameState.Augments)
+        {
+            yield return new WaitForSeconds(2);
+
+            augmentManager.AugmentsObj.SetActive(true);
+            augmentManager.GetRandomStatAugments(3);
+            state = GameState.Augments;
+        }
+    }
+    IEnumerator OpenBossAugment()
+    {
+        if (state != GameState.Augments)
+        {
+            yield return new WaitForSeconds(2);
+
+            augmentManager.AugmentsObj.SetActive(true);
+            augmentManager.isBossAugment = true;
+            augmentManager.GetRandomBossAugment(3);
+            state = GameState.Augments;
+        }
+    }
+
+    void CloseAugment()
+    {
+        if (state == GameState.Augments)
+        {
+            augmentManager.AugmentsObj.SetActive(false);
             state = GameState.FreeRoam;
         }
     }
@@ -111,6 +151,10 @@ public class GameController : MonoBehaviour
         else if (state == GameState.Inventory)
         {
             inventory.HandleUpdate();
+        }
+        else if (state == GameState.Augments)
+        {
+            augmentManager.HandleUpdate();
         }
     }
 }

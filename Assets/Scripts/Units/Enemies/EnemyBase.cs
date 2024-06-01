@@ -15,6 +15,7 @@ public class EnemyBase : ScriptableObject
     public new string name;
     public EnemyType type;
     public Sprite sprite;
+    public bool isBoss;
 
     // Valeur qui changera
     public int Hp;

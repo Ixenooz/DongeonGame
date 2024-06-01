@@ -45,6 +45,16 @@ public class Player : MonoBehaviour
     public int MaxMana {
         get { return Energie * 5; }
     }
+
+    private void Awake() 
+    {
+        playerBase.baseConstitution = 5;
+        playerBase.baseEnergie = 5;
+        playerBase.baseForce = 5;
+        playerBase.baseDefense = 5;
+        playerBase.baseCritique = 5;
+        playerBase.baseErudition = 5;
+    }
     
     private void Update()
     {

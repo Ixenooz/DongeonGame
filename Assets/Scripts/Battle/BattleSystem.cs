@@ -29,7 +29,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleHUD playerHud;
     [SerializeField] BattleHUD enemyHud;
     [SerializeField] BattleDialogBox dialogBox;
-    public event Action<bool> OnBattleOver;
+    public event Action<bool, bool> OnBattleOver;
 
     bool isPlayerTurn;
 
@@ -329,7 +329,8 @@ public class BattleSystem : MonoBehaviour
         yield return dialogBox.TypeDialog($"Vous avez vaincu {enemy.name}.");
 
         yield return new WaitForSeconds(2f);
-        OnBattleOver(true);
+
+        OnBattleOver(true, enemy.isBoss);
     }
     
     private IEnumerator PlayerFainted()
@@ -337,7 +338,7 @@ public class BattleSystem : MonoBehaviour
         yield return dialogBox.TypeDialog($"Vous avez ete vaincu par {enemy.name}.");
 
             yield return new WaitForSeconds(2f);
-            OnBattleOver(false);
+            OnBattleOver(false, enemy.isBoss);
     }
 
     IEnumerator ShowDamageDetails(DamageDetails damageDetails)
